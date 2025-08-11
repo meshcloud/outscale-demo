@@ -8,5 +8,5 @@ resource "outscale_vm" "vm03" {
     image_id           = var.image_id
     vm_type            = var.vm_type
     security_group_ids = [outscale_security_group.security_group01.security_group_id]
-    subnet_id          = outscale_subnet.subnet01.subnet_id
+    subnet_id          = var.subnet_id
 }
