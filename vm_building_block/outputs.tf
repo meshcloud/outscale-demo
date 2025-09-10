@@ -1,6 +1,3 @@
-output "vm_ip" {
-  value = outscale_vm.vm03.ip
-}
 output "keypair_name" {
   value = outscale_keypair.keypair01.keypair_name
 }
