@@ -15,3 +15,7 @@ variable "vm_type" {
   description = "TINA, Legacy or AWS-compatible. Refer to Outscale docs for VM Types: https://docs.outscale.com/en/userguide/VM-Types.html"
   default = "tinav5.c1r1p3"
 }
+variable "allow_list_ip_range" {
+  type = string
+  default = "87.169.224.2/32"
+}

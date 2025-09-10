@@ -4,6 +4,15 @@ resource "outscale_security_group" "security_group01" {
     net_id               = var.net_id
 }
 
+resource "outscale_security_group_rule" "security_group_rule01" {
+    flow              = "Inbound"
+    security_group_id = outscale_security_group.security_group01.security_group_id
+    from_port_range   = "80"
+    to_port_range     = "80"
+    ip_protocol       = "tcp"
+    ip_range          = var.allow_list_ip_range
+}
+
 resource "outscale_keypair" "keypair01" {
     keypair_name = "terraform-keypair-for-vm"
 }
