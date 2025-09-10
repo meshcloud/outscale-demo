@@ -6,7 +6,7 @@
 Set the following environment variables when creating the Building Block definition
 - **OUTSCALE_ACCESSKEYID**: Required
 - **OUTSCALE_SECRETKEYID**: Required
-- **OUTSCALE_REGION**: Optional
+- **OUTSCALE_REGION**: Required
 
 ## Required Inputs
 - IP Range for the Net
