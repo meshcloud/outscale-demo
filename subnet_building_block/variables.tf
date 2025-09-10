@@ -1,6 +1,7 @@
 variable "TF_VAR_OUTSCALE_REGION" {
   type = string
   nullable = false
+  default = "eu-west-2"
 }
 variable "TF_VAR_OUTSCALE_ACCESSKEYID" {
   type = string
@@ -15,7 +16,7 @@ variable "net_id" {
   type = string
   description = "ID of the Outscale Net where the Subnet will be created"
 }
-variable "¡p_range" {
+variable "ip_range" {
   type = string
   description = "IP Range of Subnet in CIDR notation"
 }
