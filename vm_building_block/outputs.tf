@@ -10,6 +10,3 @@ output "private_ip" {
 output "public_ip" {
   value = outscale_vm.vm03.public_ip
 }
-output "private_ip" {
-  value = outscale_vm.vm03.
-}
