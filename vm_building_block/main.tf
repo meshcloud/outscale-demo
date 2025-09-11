@@ -7,8 +7,8 @@ resource "outscale_security_group" "security_group01" {
 resource "outscale_security_group_rule" "security_group_rule01" {
     flow              = "Inbound"
     security_group_id = outscale_security_group.security_group01.security_group_id
-    from_port_range   = "80"
-    to_port_range     = "80"
+    from_port_range   = "8080"
+    to_port_range     = "8080"
     ip_protocol       = "tcp"
     ip_range          = var.allow_list_ip_range
 }
@@ -41,7 +41,6 @@ resource "outscale_vm" "vm03" {
     }
     # install docker, pull nodejs helloworld, run in container
     user_data = base64encode(<<EOF
-
 sudo dnf -y install dnf-plugins-core
 sudo dnf-3 config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
 sudo dnf install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
