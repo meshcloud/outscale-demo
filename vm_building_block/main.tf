@@ -24,4 +24,34 @@ resource "outscale_vm" "vm03" {
     subnet_id          = var.subnet_id
     keypair_name = outscale_keypair.keypair01.keypair_name
     vm_initiated_shutdown_behavior = "terminate"
+    block_device_mappings {
+        device_name = "/dev/sda1" # /dev/sda1 corresponds to the root device of the VM
+        bsu {
+            delete_on_vm_deletion = false
+            volume_size = 15
+            volume_type = "gp2"
+        }
+    }
+    tags {
+        key   = "name"
+        value = "pm-test-vm"
+    }
+}
+
+resource "outscale_volume" "volume01" {
+    # subregion_name = "${var.subregion}a"
+    subregion_name = "eu-west-2a"
+    size           = 5
+    iops           = 100
+    volume_type    = "gp2"
+    tags {
+        key   = "name"
+        value = "pm-test-volume"
+    }
+}
+
+resource "outscale_volume_link" "volume_link01" {
+    device_name = "/dev/sda1"
+    volume_id   = outscale_volume.volume01.id
+    vm_id       = outscale_vm.vm03.id
 }
