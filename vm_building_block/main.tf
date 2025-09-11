@@ -10,7 +10,7 @@ resource "outscale_security_group_rule" "security_group_rule01" {
     from_port_range   = "8080"
     to_port_range     = "8080"
     ip_protocol       = "tcp"
-    # ip_range          = var.allow_list_ip_range
+    ip_range          = var.allow_list_ip_range
 }
 
 resource "outscale_security_group_rule" "security_group_rule02" {
@@ -19,7 +19,7 @@ resource "outscale_security_group_rule" "security_group_rule02" {
     from_port_range   = "22"
     to_port_range     = "22"
     ip_protocol       = "tcp"
-    # ip_range          = var.allow_list_ip_range
+    ip_range          = var.allow_list_ip_range
 }
 
 resource "outscale_keypair" "keypair01" {
