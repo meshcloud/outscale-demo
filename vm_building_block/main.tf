@@ -42,7 +42,7 @@ resource "outscale_volume" "volume01" {
     # subregion_name = "${var.subregion}a"
     subregion_name = "eu-west-2a"
     size           = 5
-    iops           = 100
+    # iops           = 100
     volume_type    = "gp2"
     tags {
         key   = "name"
