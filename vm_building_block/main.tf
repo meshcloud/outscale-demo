@@ -10,14 +10,20 @@ resource "outscale_security_group_rule" "security_group_rule01" {
     from_port_range   = "8080"
     to_port_range     = "8080"
     ip_protocol       = "tcp"
-    ip_range          = var.allow_list_ip_range
+    # ip_range          = var.allow_list_ip_range
+}
+
+resource "outscale_security_group_rule" "security_group_rule02" {
+    flow              = "Inbound"
+    security_group_id = outscale_security_group.security_group01.security_group_id
+    from_port_range   = "22"
+    to_port_range     = "22"
+    ip_protocol       = "tcp"
+    # ip_range          = var.allow_list_ip_range
 }
 
 resource "outscale_keypair" "keypair01" {
     keypair_name = "terraform-keypair-for-vm"
-}
-
-resource "outscale_public_ip" "public_ip01" {
 }
 
 resource "outscale_vm" "vm03" {
@@ -50,11 +56,6 @@ docker build -t node-hello-world:latest .
 docker run -it -p 8080:8080 --name node-hello-world node-hello-world:latest
     EOF
     )
-}
-
-resource "outscale_public_ip_link" "public_ip_link01" {
-    vm_id     = outscale_vm.vm03.vm_id
-    public_ip = outscale_public_ip.public_ip01.public_ip
 }
 
 # resource "outscale_volume" "volume01" {
