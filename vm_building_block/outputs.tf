@@ -8,8 +8,8 @@ output "keypair_private_key" {
   value = outscale_keypair.keypair01.private_key
 }
 output "private_ip" {
-  value = outscale_vm.vm03.private_ip
+  value = outscale_vm.app_vm.private_ip
 }
 output "public_ip" {
-  value = outscale_vm.vm03.public_ip
+  value = outscale_vm.app_vm.public_ip
 }
