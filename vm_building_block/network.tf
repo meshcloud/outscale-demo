@@ -40,17 +40,17 @@ resource "outscale_security_group_rule" "app_sgr_4" {
   ip_range          = "0.0.0.0/0"
 }
 
-# resource "outscale_internet_service" "internet_service01" {
-#   tags {
-#     key   = "name"
-#     value = "pm-test-internet-service"
-#   }
-# }
+resource "outscale_internet_service" "internet_service01" {
+  tags {
+    key   = "name"
+    value = "pm-test-internet-service"
+  }
+}
 
-# resource "outscale_internet_service_link" "internet_service_link01" {
-#   internet_service_id = outscale_internet_service.internet_service01.internet_service_id
-#   net_id              = var.net_id
-# }
+resource "outscale_internet_service_link" "internet_service_link01" {
+  internet_service_id = outscale_internet_service.internet_service01.internet_service_id
+  net_id              = var.net_id
+}
 
 # resource "outscale_route_table" "route_table01" {
 #   net_id = var.net_id
