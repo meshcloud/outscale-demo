@@ -43,4 +43,8 @@ resource "outscale_nat_service" "nat_service01" {
     subnet_id    = var.subnet_id
     public_ip_id = outscale_public_ip.public_ip01.public_ip_id
     depends_on   = [outscale_route.route01]
+    tags {
+        key   = "name"
+        value = "pm-test-nat-service"
+    }
 }
