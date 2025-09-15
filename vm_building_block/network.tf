@@ -80,7 +80,7 @@ resource "outscale_public_ip" "public_ip01" {
 }
 
 resource "outscale_public_ip_link" "public_ip_link01" {
-  vm_id        = outscale_vm.vm03.vm_id
+  vm_id        = outscale_vm.app_vm.vm_id
   public_ip    = outscale_public_ip.public_ip01.public_ip
   allow_relink = true
 }
