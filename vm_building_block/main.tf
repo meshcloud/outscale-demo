@@ -5,7 +5,7 @@ resource "outscale_keypair" "keypair01" {
 resource "outscale_vm" "app_vm" {
   image_id                       = var.image_id
   vm_type                        = var.vm_type
-  security_group_ids             = [outscale_security_group.app_sg]
+  security_group_ids             = [outscale_security_group.app_sg.id]
   subnet_id                      = var.subnet_id
   keypair_name                   = outscale_keypair.keypair01.keypair_name
   vm_initiated_shutdown_behavior = "terminate"
