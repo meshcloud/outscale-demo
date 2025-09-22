@@ -11,6 +11,7 @@ variable "vm_type" {
 variable "allow_list_ip_range" {
   type        = string
   description = "IP Range that will be allowed to connect to the VM. Enter 0.0.0.0/0 to allow all traffic"
+  default = "87.169.224.2/32"
 }
 variable "subregion" {
   type        = string

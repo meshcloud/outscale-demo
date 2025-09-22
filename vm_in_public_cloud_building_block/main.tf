@@ -12,6 +12,6 @@ resource "outscale_vm" "app_vm" {
   vm_initiated_shutdown_behavior = "terminate"
   tags {
     key   = "name"
-    value = "pm-test-vm"
+    value = var.vm_name
   }
 }

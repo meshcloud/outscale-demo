@@ -1,6 +1,6 @@
 resource "outscale_security_group" "app_sg" {
   description         = "Application Security Group"
-  security_group_name = "pm-test-app-sg"
+  security_group_name = "app-sg"
 }
 
 resource "outscale_security_group_rule" "app_sgr_ssh" {
