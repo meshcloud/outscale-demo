@@ -1,21 +1,23 @@
-variable "net_id" {
-  type = string
-  description = "ID of the Network where the VM will be deployed"
-}
-variable "subnet_id" {
-  type = string
-  description = "ID of the Subnet where the VM will be deployed"
-}
 variable "image_id" {
-  type = string
-  default = "ami-eb899755"
+  type        = string
+  default     = "ami-0016b8a0"
+  description = "VM Image. Default value is Ubuntu 24.04-2025-07-07"
 }
 variable "vm_type" {
-  type = string
+  type        = string
   description = "TINA, Legacy or AWS-compatible. Refer to Outscale docs for VM Types: https://docs.outscale.com/en/userguide/VM-Types.html"
-  default = "tinav5.c1r1p3"
+  default     = "t2.small"
 }
 variable "allow_list_ip_range" {
-  type = string
-  default = "87.169.224.2/32"
+  type        = string
+  description = "IP Range that will be allowed to connect to the VM. Enter 0.0.0.0/0 to allow all traffic"
+}
+variable "subregion" {
+  type        = string
+  default     = "eu-west-2a"
+  description = "Outscale Subregion for the VM"
+}
+variable "vm_name" {
+  type        = string
+  description = "Name of the VM in Outscale"
 }
